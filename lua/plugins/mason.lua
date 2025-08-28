@@ -25,7 +25,6 @@ return {
 
         "clangd",
         "codelldb",
-        "debugpy",
       },
     },
   },
