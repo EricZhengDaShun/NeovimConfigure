@@ -27,6 +27,12 @@ rm -rf ~/.cache/nvim
 git clone https://github.com/EricZhengDaShun/NeovimConfigure.git ~/.config/nvim
 ```
 
+### 4. Remove git
+
+```bash
+rm -rf ~/.config/nvim/.git
+```
+
 ------------------------------------------------------------------------
 
 ## Windows
@@ -40,17 +46,19 @@ choco install gzip
 ### 2. Remove Old or Other Versions
 
 ``` powershell
-Remove-Item -Recurse -Force "$env:LOCALAPPDATA
-vim"
-Remove-Item -Recurse -Force "$env:LOCALAPPDATA
-vim-data"
-Remove-Item -Recurse -Force "$env:LOCALAPPDATA\Temp
-vim"
+Remove-Item -Recurse -Force "$env:LOCALAPPDATA\nvim"
+Remove-Item -Recurse -Force "$env:LOCALAPPDATA\nvim-data"
+Remove-Item -Recurse -Force "$env:LOCALAPPDATA\Temp\nvim"
 ```
 
 ### 3. Clone Configuration
 
 ``` powershell
-git clone https://github.com/EricZhengDaShun/NeovimConfigure.git "$env:LOCALAPPDATA
-vim"
+git clone https://github.com/EricZhengDaShun/NeovimConfigure.git "$env:LOCALAPPDATA\nvim"
+```
+
+### 4. Remove git
+
+``` powershell
+Remove-Item -Recurse -Force "$env:LOCALAPPDATA\nvim\.git"
 ```
