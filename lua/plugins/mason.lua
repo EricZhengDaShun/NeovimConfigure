@@ -25,6 +25,12 @@ return {
 
         "clangd",
         "codelldb",
+
+        -- go
+        "gopls",
+        "delve",
+        "goimports-reviser",
+        "golangci-lint",
       },
     },
   },

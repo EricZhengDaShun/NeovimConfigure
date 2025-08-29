@@ -12,7 +12,7 @@ return {
       "c",
       "cpp",
       "python",
-      "c_sharp",
+      "go",
       "cmake",
       "yaml",
     },
