@@ -3,7 +3,7 @@ return {
 	config = function()
 		local dap = require("dap")
 
-    -- python
+		-- python
 		local get_python_path = function()
 			local cwd = vim.fn.getcwd()
 			local separator = vim.fn.has("win32") == 1 and "\\" or "/"
@@ -37,50 +37,30 @@ return {
 			},
 		}
 
-		
-		----------------------------------------------------------------
-		-- C / C++ / Rust (codelldb via mason)
-		----------------------------------------------------------------
-    local mason_registry = require("mason-registry")
-		mason_registry:on("package:load", function(pkg)
-			if pkg:name() == "codelldb" then
-				local extension_path = pkg:get_install_path()
-				-- local codelldb_path = extension_path .. "/extension/adapter/codelldb"
+		-- c#
+		local netcoredbg_path
+		if vim.fn.has("win32") == 1 then
+			netcoredbg_path = vim.fn.expand("$MASON/packages/netcoredbg/netcoredbg/netcoredbg.exe")
+		else
+			netcoredbg_path = vim.fn.expand("$MASON/packages/netcoredbg/netcoredbg/netcoredbg")
+		end
+		dap.adapters.coreclr = {
+			type = "executable",
+			command = netcoredbg_path,
+			args = { "--interpreter=vscode" },
+		}
 
-				local liblldb_path = extension_path .. "/extension/lldb/lib/liblldb"
-				if vim.fn.has("mac") == 1 then
-					liblldb_path = liblldb_path .. ".dylib"
-				elseif vim.fn.has("unix") == 1 then
-					liblldb_path = liblldb_path .. ".so"
-				elseif vim.fn.has("win32") == 1 then
-					liblldb_path = liblldb_path .. ".dll"
-				end
-
-				dap.adapters.codelldb = {
-					type = "server",
-					port = "${port}",
-					executable = {
-						command = liblldb_path,
-						args = { "--port", "${port}" },
-					},
-				}
-
-				dap.configurations.cpp = {
-					{
-						name = "Launch file",
-						type = "codelldb",
-						request = "launch",
-						program = function()
-							return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
-						end,
-						cwd = "${workspaceFolder}",
-						stopOnEntry = false,
-					},
-				}
-
-				dap.configurations.c = dap.configurations.cpp
-				dap.configurations.rust = dap.configurations.cpp
-			end
-		end)
+		dap.configurations.cs = {
+			{
+				name = "Launch .NET Core project",
+				type = "coreclr",
+				request = "launch",
+				program = function()
+					return vim.fn.input("Path to dll: ", vim.fn.getcwd() .. "/bin/Debug/", "file")
+				end,
+				cwd = "${workspaceFolder}",
+				stopOnEntry = false,
+			},
+		}
 	end,
 }

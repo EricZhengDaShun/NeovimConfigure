@@ -23,6 +23,7 @@ return {
         -- install any other package
         "tree-sitter-cli",
 
+        -- c++
         "clangd",
         "codelldb",
 
@@ -31,6 +32,9 @@ return {
         "delve",
         "goimports-reviser",
         "golangci-lint",
+
+        -- c#
+        "netcoredbg",
       },
     },
   },

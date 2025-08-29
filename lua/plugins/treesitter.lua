@@ -15,6 +15,7 @@ return {
       "go",
       "cmake",
       "yaml",
+      "c_sharp",
     },
   },
 }
