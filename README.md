@@ -33,6 +33,16 @@ git clone https://github.com/EricZhengDaShun/NeovimConfigure.git ~/.config/nvim
 rm -rf ~/.config/nvim/.git
 ```
 
+### Go Debug Example
+
+#### 1. Start the debug program `hello`
+
+```bash
+dlv exec ./hello --listen=:2345 --headless=true --api-version=2
+```
+
+#### 2. Attach to the remote process using Neovim
+ 
 ------------------------------------------------------------------------
 
 ## Windows

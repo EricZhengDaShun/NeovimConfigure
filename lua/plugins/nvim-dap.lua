@@ -23,27 +23,22 @@ return {
         dap.adapters.python = {
             type = "executable",
             command = get_python_path(),
-            args = {"-m", "debugpy.adapter"},
+            args = { "-m", "debugpy.adapter" },
             options = {
-                source_filetype = "python"
-            }
+                source_filetype = "python",
+            },
         }
 
-        dap.configurations.python = {{
-            type = "python",
-            request = "launch",
-            name = "Launch file",
-            program = "${file}",
-            pythonPath = get_python_path,
-            console = "integratedTerminal"
-        }}
+        dap.configurations.python = {
+            {
+                type = "python",
+                request = "launch",
+                name = "Launch file",
+                program = "${file}",
+                pythonPath = get_python_path,
+                console = "integratedTerminal",
+            },
+        }
 
-        -- c#
-        -- local netcoredbg_path
-        -- if vim.fn.has("win32") == 1 then
-        -- 	netcoredbg_path = vim.fn.expand("$MASON/packages/netcoredbg/netcoredbg/netcoredbg.exe")
-        -- else
-        -- 	netcoredbg_path = vim.fn.expand("$MASON/packages/netcoredbg/netcoredbg")
-        -- end
-    end
+    end,
 }
