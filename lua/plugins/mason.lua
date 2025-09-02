@@ -1,41 +1,43 @@
--- if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
-
--- Customize Mason
-
----@type LazySpec
 return {
-  -- use mason-tool-installer for automatically installing Mason packages
-  {
-    "WhoIsSethDaniel/mason-tool-installer.nvim",
-    -- overrides `require("mason-tool-installer").setup(...)`
-    opts = {
-      -- Make sure to use the names found in `:Mason`
-      ensure_installed = {
-        -- install language servers
-        "lua-language-server",
+	{
+		"williamboman/mason.nvim",
+		build = ":MasonUpdate",
+		config = function()
+			require("mason").setup()
+		end,
+	},
+	{
+		"williamboman/mason-lspconfig.nvim",
+		dependencies = { "williamboman/mason.nvim" },
+		config = function()
+			require("mason-lspconfig").setup({
+				ensure_installed = {
+					"lua_ls",
+					"clangd",
+				},
+			})
+		end,
+	},
+	{
+		"WhoIsSethDaniel/mason-tool-installer.nvim",
+		dependencies = { "williamboman/mason.nvim" },
+		config = function()
+			require("mason-tool-installer").setup({
+				ensure_installed = {
+					"stylua",
+					"clang-format",
+					"black",
+					"cmakelang",
+					"yamlfmt",
+					"jq",
+					"prettier",
+					"sql-formatter",
 
-        -- install formatters
-        "stylua",
-
-        -- install debuggers
-        "debugpy",
-
-        -- install any other package
-        "tree-sitter-cli",
-
-        -- c++
-        "clangd",
-        "codelldb",
-
-        -- go
-        "gopls",
-        "delve",
-        "goimports-reviser",
-        "golangci-lint",
-
-        -- c#
-        "netcoredbg",
-      },
-    },
-  },
+					"codelldb",
+				},
+				auto_update = false,
+				run_on_start = true,
+			})
+		end,
+	},
 }

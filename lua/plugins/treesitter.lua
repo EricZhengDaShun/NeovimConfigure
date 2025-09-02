@@ -1,21 +1,34 @@
--- if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
-
--- Customize Treesitter
-
----@type LazySpec
 return {
   "nvim-treesitter/nvim-treesitter",
+  build = ":TSUpdate",
+  main = "nvim-treesitter.configs",
   opts = {
     ensure_installed = {
-      "lua",
-      "vim",
       "c",
       "cpp",
+      "lua",
       "python",
-      "go",
       "cmake",
       "yaml",
-      "c_sharp",
+      "json",
+      "markdown",
+      "vim",
+      "vimdoc",
+      "sql",
+      "git_config",
+      "git_rebase",
+      "gitattributes",
+      "gitcommit",    
+      "gitignore",  
+    },
+    sync_install = false,
+    auto_install = true,
+    highlight = {
+      enable = true,
+      additional_vim_regex_highlighting = false,
+    },
+    indent = {
+      enable = true,
     },
   },
 }
