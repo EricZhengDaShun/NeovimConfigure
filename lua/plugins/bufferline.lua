@@ -29,20 +29,19 @@ return {
       },
     })
 
-    vim.keymap.set("n", "]b", ":bnext<CR>", { silent = true, desc = "Next buffer" })
-    vim.keymap.set("n", "[b", ":bprevious<CR>", { silent = true, desc = "Prev buffer" })
+    local map = vim.keymap.set
+    map("n", "]b", ":bnext<CR>", { silent = true, desc = "Next buffer" })
+    map("n", "[b", ":bprevious<CR>", { silent = true, desc = "Prev buffer" })
 
-    vim.keymap.set(
-      "n", 
-      "<leader>c", 
+    map("n", "<leader>bc", 
       function()
-       bufremove.delete(0, false)
+        bufremove.delete(0, false)
       end, 
-      { desc = "Close current buffer" }
-    )
+      { desc = "Close current buffer" })
 
-    -- 選擇並關閉 buffer (官方命令)
-    vim.keymap.set("n", "<leader>bd", "<cmd>BufferLinePickClose<CR>", { desc = "Pick buffer to close" })
+    map("n", "<leader>bd", "<cmd>BufferLinePickClose<CR>", { desc = "Pick buffer to close" })
+    map('n', '<leader>bp', '<Cmd>BufferLinePick<CR>', { desc = '[B]uffer [P]ick' })
+    map('n', '<leader>bo', '<Cmd>BufferLineCloseOthers<CR>', { desc = '[B]uffer Close [O]thers' })
   end,
 }
 
