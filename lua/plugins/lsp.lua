@@ -8,6 +8,14 @@ return {
 	{
 		"neovim/nvim-lspconfig",
 		config = function()
+			vim.diagnostic.config({
+				virtual_text = true, -- 啟用虛擬文字
+				signs = true, -- 在左側 gutter 顯示圖示
+				underline = true, -- 為有問題的程式碼加上底線
+				update_in_insert = false, -- 是否在插入模式下即時更新 (預設為 false)
+				severity_sort = true, -- 根據嚴重性排序，優先顯示錯誤
+			})
+
 			local on_attach = function(client, bufnr)
 				local map = function(mode, lhs, rhs, desc)
 					vim.keymap.set(
