@@ -14,7 +14,8 @@ return {
 		cmake_build_type = "Debug",
 		cmake_generate_options = { "-DCMAKE_EXPORT_COMPILE_COMMANDS=1" },
 		cmake_regenerate_on_save = true,
-		cmake_dap_configuration = { "cppdbg" },
+		-- cmake_dap_configuration = { "cppdbg" },
+		cmake_dap_configuration = { name = "Launch file", type = "codelldb", request = "launch" },
 		cmake_executor = { name = "quickfix" },
 	},
 	keys = {
