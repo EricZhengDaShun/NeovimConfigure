@@ -1,5 +1,0 @@
-return {
-    {
-        "Mofiqul/vscode.nvim"
-    },
-}

@@ -1,0 +1,7 @@
+-- local keymap = vim.keymap.set
+--
+-- --- buffer
+-- keymap("n", "<Tab>", "<cmd>bnext<cr>", { desc = "Next buffer" })
+-- keymap("n", "<S-Tab>", "<cmd>bprevious<cr>", { desc = "Previous buffer" })
+-- keymap("n", "<leader>c", "<cmd>bdelete<cr>", { desc = "Close current buffer" })
+--
