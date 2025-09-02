@@ -104,6 +104,10 @@ return {
     config = function()
       local dap = require("dap")
       local codelldb_path = vim.fn.expand("$MASON/bin/codelldb")
+      if vim.fn.has("win32") == 1 then
+          codelldb_path = vim.fn.expand("$MASON/packages/codelldb/extension/adapter/codelldb.exe")
+      end
+
       dap.adapters.codelldb = {
         type = "server",
         port = "${port}",
