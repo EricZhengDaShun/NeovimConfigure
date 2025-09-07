@@ -46,7 +46,7 @@ nvim
 Delete the following directory if it exists:
 
 ```
-%LOCALAPPDATA%\nvim
+Remove-Item -Recurse -Force "$env:LOCALAPPDATA\nvim"
 ```
 
 ---
