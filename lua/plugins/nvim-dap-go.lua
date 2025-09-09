@@ -1,3 +1,5 @@
+if true then return{} end
+
 return {
   "leoluz/nvim-dap-go",
   ft = "go",
