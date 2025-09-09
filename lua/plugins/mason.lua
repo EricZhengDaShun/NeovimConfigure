@@ -15,7 +15,7 @@ return {
         "lua-language-server",
         "clangd",
         "pyright",
-        "gopls",
+        -- "gopls",
 
         -- install formatters
         "stylua",
@@ -25,7 +25,7 @@ return {
         -- install debuggers
         "debugpy",
         "codelldb",
-        "delve",
+        -- "delve",
 
         -- install any other package
         "tree-sitter-cli",
