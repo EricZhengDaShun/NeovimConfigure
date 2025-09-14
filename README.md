@@ -41,6 +41,15 @@ nvim
 
 ## Windows
 
+### Install gzip
+
+Run PowerShell with administrator privileges
+
+```powershell
+choco install gzip
+```
+
+
 ### 1. Remove Old Configuration
 
 Delete the following directory if it exists:
