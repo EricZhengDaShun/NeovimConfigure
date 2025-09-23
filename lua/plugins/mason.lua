@@ -15,6 +15,7 @@ return {
         "lua-language-server",
         "clangd",
         "pyright",
+        "rust-analyzer",
         -- "gopls",
 
         -- install formatters
