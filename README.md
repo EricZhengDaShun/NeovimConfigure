@@ -56,6 +56,7 @@ Delete the following directory if it exists:
 
 ```
 Remove-Item -Recurse -Force "$env:LOCALAPPDATA\nvim"
+Remove-Item -Recurse -Force "$env:LOCALAPPDATA\nvim-data"
 ```
 
 ---
