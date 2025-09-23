@@ -10,7 +10,7 @@ return {
                     { id = "stacks",      size = 0.20 },
                     { id = "watches",     size = 0.20 },
                 },
-                size = 60,
+                size = 0.4,
                 position = "left",
             },
             {
@@ -18,7 +18,7 @@ return {
                     { id = "repl",    size = 0.50 },
                     { id = "console", size = 0.50 },
                 },
-                size = 15,
+                size = 0.3,
                 position = "bottom",
             },
         }
