@@ -1,24 +1,26 @@
--- if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
-
--- Customize Treesitter
-
----@type LazySpec
 return {
-  "nvim-treesitter/nvim-treesitter",
-  opts = {
-    ensure_installed = {
-      "lua",
-      "vim",
-      -- add more arguments for adding more treesitter parsers
-      "c",
-      "cpp",
-      "python",
-      "go",
-      "cmake",
-      "yaml",
-      "json",
-      "sql",
-      "rust",
+    "nvim-treesitter/nvim-treesitter",
+    branch = 'master',
+    lazy = false,
+    build = ":TSUpdate",
+    opts = {
+        ensure_installed = {
+	        "c",
+	        "cpp",
+            "cmake",
+	        "lua",
+	        "yaml",
+	        "json",
+	        "vim",
+	        "markdown",
+	        "rust",
+        },
+        auto_install = true,
+        highlight = {
+	        enable = true,
+        },
     },
-  },
+    config = function(_, opts)
+        require("nvim-treesitter.configs").setup(opts)
+    end
 }
