@@ -8,4 +8,14 @@ return {
 	config = function(_, opts)
 		require("dapui").setup(opts)
 	end,
+	keys = {
+		{
+			mode = "n",
+			"<leader>ud",
+			function()
+				require("dapui").toggle()
+			end,
+			desc = "Toggle Debug UI",
+		},
+	},
 }
