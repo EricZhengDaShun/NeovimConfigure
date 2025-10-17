@@ -13,7 +13,7 @@ return {
 	        "json",
 	        "vim",
 	        "markdown",
-	        "rust",
+	        "python",
         },
         auto_install = true,
         highlight = {

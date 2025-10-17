@@ -5,7 +5,7 @@ return {
 		require("mason-tool-installer").setup({
 			ensure_installed = {
 				-- lua
-				"lua_ls",
+				"lua-language-server",
 				"stylua",
 
 				-- c, cpp
@@ -14,9 +14,10 @@ return {
                 "codelldb",
                 -- cmake
                 "cmakelint",
+				"neocmakelsp",
 
 				-- python
-				"pyright",
+				"basedpyright",
 				"isort",
 				"black",
 			},
