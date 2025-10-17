@@ -20,6 +20,9 @@ return {
 				"basedpyright",
 				"isort",
 				"black",
+
+                -- json.
+                "json-lsp",
 			},
 		})
 	end,

@@ -45,6 +45,23 @@ return {
             capabilities = require("cmp_nvim_lsp").default_capabilities(),
         }
 
+        vim.lsp.config["jsonls"] = {
+            cmd = { "vscode-json-language-server", "--stdio" },
+            filetypes = { "json", "jsonc" },
+            settings = {
+                json = {
+                    schemas = {
+                        {
+                            description = "CMake Presets",
+                            fileMatch = { "CMakePresets.json", "CMakeUserPresets.json" },
+                            url = "https://gitlab.kitware.com/cmake/cmake/-/raw/v3.22.0/Help/manual/presets/schema.json",
+                        },
+                    },
+                },
+            },
+            capabilities = capabilities,
+        }
+
         vim.api.nvim_create_autocmd("FileType", {
             pattern = { "c", "cpp", "objc", "objcpp" },
             callback = function()
@@ -70,6 +87,13 @@ return {
             pattern = { "python" },
             callback = function()
                 vim.lsp.start(vim.lsp.config["basedpyright"])
+            end,
+        })
+
+        vim.api.nvim_create_autocmd("FileType", {
+            pattern = { "json", "jsonc" },
+            callback = function()
+                vim.lsp.start(vim.lsp.config["jsonls"])
             end,
         })
     end,
