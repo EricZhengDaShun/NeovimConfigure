@@ -4,6 +4,12 @@
 
 ## Ubuntu
 
+### Install necessary tools
+
+```bash
+sudo apt install fzf
+```
+
 ### 1. Remove Old Configuration
 
 ```bash
